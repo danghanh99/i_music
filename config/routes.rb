@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  # get 'users/new'
-  # get 'users/create'
-  # get 'users/update'
-  # get 'users/edit'
-  resources :users 
+  resources :users
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/login', to: 'sessions#destroy'
 end

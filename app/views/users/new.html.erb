@@ -1,3 +1,4 @@
+<% provide(:title, 'Sign up') %>
 
         <div class="header">
             <div class="container">
@@ -16,15 +17,16 @@
         <div class="register-container container">
             <div class="row">
                 <div class="iphone span5 col-xs-5">
-                    <%= image_tag("iphone.png", alt: "") %>
+                    <%#= image_tag("iphone.png", alt: "") %>
                 </div>
                 <div class="register span6 col-xs-6">
-                     <%= render "form", submit_tittle: "Create account"  %> 
+                     <%= render partial: "form", locals: {submit_tittle: "Create my account"} %>
                 </div>
             </div>
         </div>
 
         
+
 
 
 

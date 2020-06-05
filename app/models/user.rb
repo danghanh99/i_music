@@ -8,7 +8,7 @@ class User < ApplicationRecord
     BCrypt::Engine.hash_secret(password, password_salt)
   end
 
-  # def check_valid_password(password)
-  #   encrypted_password == User.generate_encrypted_password(password, encrypted_password.first(29))
-  # end
+  def authenticated?(password)  
+    encrypted_password == User.generate_encrypted_password(password, encrypted_password.first(29))
+  end
 end
