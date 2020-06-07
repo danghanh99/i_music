@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       render 'new'
     else  
       if @user.save
-        redirect_to root_url
+        redirect_to @user
       else
         render "new"
       end
