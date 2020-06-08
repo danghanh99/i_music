@@ -1,0 +1,13 @@
+<%= form_for(@song) do |f| %>
+  <h2>Sign-up</h2>
+  <%= render 'shared/error_messages', object: f.object %>
+  <%= f.label :name %>
+  <%= f.text_field :name, class: 'form-control', id: 'name', placeholder: "name..." %>
+  <%= f.label :artist %>
+  <%= f.text_field :artist, class: 'form-control', id: 'artist', placeholder: "artist..." %>
+  <%= f.label :lyric %>
+  <%= f.text_field :lyric, class: 'form-control', id: 'lyric', placeholder: "lyric..." %>
+  <%= f.label :category %>
+  <%= f.select :category, options_for_select(Category.get_list_category), {:class => 'form-control', :prompt => 'category'} %>
+  <%= f.submit "create", class: 'create' %>
+<% end %>
