@@ -1,56 +1,10 @@
 <% provide(:title, "Log in") %>
-
-    
-
-
-
-
-
-   
-    
-    <!-- CSS -->
-
-    <div class="header">
-        <div class="container">
-            <div class="row">
-                <div class="logo span4 col-xs-4">
-                    <h1><a href="">iMusic <span class="red">.</span></a></h1>
-                </div>
-                <div class="links span8 col-xs-8">
-                    <a class="home" href="" rel="tooltip" data-placement="bottom" data-original-title="Home"></a>
-                    <a class="blog" href="" rel="tooltip" data-placement="bottom" data-original-title="Blog"></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="register-container container">
-        <div class="row">
-            <div class="iphone span5 col-xs-5">
-                <%#= image_tag("iphone.png", alt: "") %>
-            </div>
-            <div class="register span6 col-xs-6">
-
-      <%= form_for(:session, url: login_path) do |f| %>
-      <h2>Log in</h2>
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control', id: 'email', placeholder: 'Email...' %>
-
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control', id: 'password', placeholder: 'Password...' %>
-
-      <%= f.label :remember_me, class: "checkbox inline" do %>
-        <%= f.check_box :remember_me, class: 'check_box' %>
-        <span>Remember me on this computer</span>
-      <% end %>
-
-      <%= f.submit "Log in", class: 'btn_signup' %>
-      <span>Click <a href="dangky.html">vào đây</a> để tạo tài khoản mới</span>
-      <span><a href="#"><< Quên mật khẩu >></a></span>
-    <% end %>
-                
-            </div>
-        </div>
-    </div>
-    <!-- Javascript -->
-    
+  <%= form_for(:session, url: login_path) do |f| %>
+  <h2>Log in</h2>
+  <%= f.label :email %>
+  <%= f.email_field :email, class: 'form-control', id: 'email', placeholder: 'Email...' %>
+  <%= f.label :password %>
+  <%= f.password_field :password, class: 'form-control', id: 'password', placeholder: 'Password...' %>
+  <%= f.submit "Log in", class: 'btn_signup' %>
+<% end %>
 

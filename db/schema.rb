@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_07_145655) do
+ActiveRecord::Schema.define(version: 2020_06_08_134852) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -29,6 +29,10 @@ ActiveRecord::Schema.define(version: 2020_06_07_145655) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "mp3_file_name"
+    t.string "mp3_content_type"
+    t.bigint "mp3_file_size"
+    t.datetime "mp3_updated_at"
     t.index ["category_id"], name: "index_songs_on_category_id"
     t.index ["user_id"], name: "index_songs_on_user_id"
   end

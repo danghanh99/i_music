@@ -9,5 +9,9 @@
   <%= f.text_field :lyric, class: 'form-control', id: 'lyric', placeholder: "lyric..." %>
   <%= f.label :category %>
   <%= f.select :category, options_for_select(Category.get_list_category), {:class => 'form-control', :prompt => 'category'} %>
+ 
+  <%= f.label :mp3 %>
+  <%= f.file_field :mp3, class: 'form-control', id: 'mp3', placeholder: "mp3..." %>
+
   <%= f.submit "create", class: 'create' %>
 <% end %>
