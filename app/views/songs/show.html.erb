@@ -1,39 +1,12 @@
-<%# <audio class="audios" id="yes-audio" controls preload="none"> 
-   <source src="audios/Anh-Nang-Cua-Anh-Cho-Em-Den-Ngay-Mai-OST-Duc-Phuc.mp3" type="audio/mpeg">
-</audio> %>
-
-<audio id="myAudio">
-  <source src="audios/Anh-Nang-Cua-Anh-Cho-Em-Den-Ngay-Mai-OST-Duc-Phuc.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
-
-<button onclick="playAudio()" type="button">Play Audio</button>
-<button onclick="pauseAudio()" type="button">Pause Audio</button> 
-
-<script>
-  // var result = $('#result')
-
-  // result.hide().html('<%= j @result %>').fadeIn(250);
-  // console.log(result);
-  // playAudio(result);
-
-  // function playAudio(result){
-  //   if (result.html() === "Yes"){
-
-  //     $('#yes-audio').trigger('play')
-  //   }
-  //   else if (result.html() === "Nope."){
-  //     $('#no-audio').trigger('play')
-  //   }
-  // }
-
-  var x = document.getElementById("myAudio");
-
-  function playAudio( {
-    x.play();
-  })
-
-  function pauseAudio() {
-    x.pause();
-  }
-</script>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <label>song:</label> <p><%= @song.name %></p>
+        <label>artist:</label> <p><%= @song.artist %></p>
+        <label>lyric:</label><p> <%= @song.lyric %></p>
+        <%= audio_tag "#{@song.mp3}", controls: true, autoplay: false %>
+      </h1>
+    </section>
+  </aside>
+</div>
