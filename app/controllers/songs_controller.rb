@@ -4,9 +4,8 @@ class SongsController < ApplicationController
   end
 
   def create 
-    byebug
     @song = current_user.songs.build(song_params) if admin?
-    category = Category.find_by name: params[:song][:category]
+    category = Category.find_by name: params[:song][:category]  
     @song.category_id = category.id
     if @song.save
       flash[:success] = "song created!"
