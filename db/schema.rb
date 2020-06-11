@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_08_134852) do
+ActiveRecord::Schema.define(version: 2020_06_11_135902) do
+
+  create_table "album_songs", force: :cascade do |t|
+    t.integer "album_id", null: false
+    t.integer "song_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["album_id"], name: "index_album_songs_on_album_id"
+    t.index ["song_id"], name: "index_album_songs_on_song_id"
+  end
+
+  create_table "albums", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_albums_on_name"
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -47,6 +63,8 @@ ActiveRecord::Schema.define(version: 2020_06_08_134852) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "album_songs", "albums"
+  add_foreign_key "album_songs", "songs"
   add_foreign_key "categories", "users"
   add_foreign_key "songs", "categories"
   add_foreign_key "songs", "users"

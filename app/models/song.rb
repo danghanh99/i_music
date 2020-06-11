@@ -1,4 +1,6 @@
 class Song < ApplicationRecord
+  has_many :album_songs, dependent: :destroy
+  has_many :albums, through: :album_songs
   belongs_to :user
   belongs_to :category
 
