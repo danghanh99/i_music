@@ -18,6 +18,7 @@ class CategoriesController < ApplicationController
   private
 
   def category_params
+    byebug
     params.require(:category).permit(:name)
   end
 

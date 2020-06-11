@@ -1,10 +1,35 @@
-<% provide(:title, "Log in") %>
-  <%= form_for(:session, url: login_path) do |f| %>
-  <h2>Log in</h2>
-  <%= f.label :email %>
-  <%= f.email_field :email, class: 'form-control', id: 'email', placeholder: 'Email...' %>
-  <%= f.label :password %>
-  <%= f.password_field :password, class: 'form-control', id: 'password', placeholder: 'Password...' %>
-  <%= f.submit "Log in", class: 'btn_signup' %>
-<% end %>
-
+<% provide(:title, 'Log in') %>
+<div class="header">
+    <div class="container">
+        <div class="row">
+            <div class="logo span4 col-xs-4">
+                <h1><a href="">iMusic <span class="red">.</span></a></h1>
+            </div>
+            <div class="links span8 col-xs-8">
+                <a class="home" href="" rel="tooltip" data-placement="bottom" data-original-title="Home"></a>
+                <a class="blog" href="" rel="tooltip" data-placement="bottom" data-original-title="Blog"></a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="register-container container">
+    <div class="row">
+        <div class="iphone span5 col-xs-5">
+            <%= image_tag("iphone.png", alt: "") %>
+        </div>
+        <div class="register span6 col-xs-6">
+        <form action="" method="post">
+            <h2>Sign-in</h2>
+            <%= form_for(:session, url: login_path) do |f| %>
+            <%= f.label :email %>
+            <%= f.email_field :email, class: 'form-control', id: 'email', placeholder: 'Email...' %>
+            <%= f.label :password %>
+            <%= f.password_field :password, class: 'form-control', id: 'password', placeholder: 'Password...' %>
+            <%= f.submit "Log in", class: 'btn_signup' %>
+            <span>Click <%= link_to "Click vào đây", new_user_path %> để tạo tài khoản mới</span>
+          <span><a href="#"><< Quên mật khẩu >></a></span>
+          <% end %>      
+        </form>
+        </div>
+    </div>
+</div>

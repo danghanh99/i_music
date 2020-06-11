@@ -26,7 +26,6 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap-sass', '3.4.1'
 # gem 'bootstrap', '~> 4.4.1'
 gem 'sassc-rails', '>=2.1.0'
