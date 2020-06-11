@@ -16,7 +16,10 @@ class UsersController < ApplicationController
       render 'new'
     else  
       if @user.save
-        redirect_to root_url
+        @user.send_activation_email
+        flash[:info] = "Please check your email to activate your account."
+        log_in @user
+        redirect_to @user
       else
         render "new"
       end
@@ -46,4 +49,6 @@ class UsersController < ApplicationController
     params[:user][:encrypted_password] = User.generate_encrypted_password params[:user][:encrypted_password]
     params.require(:user).permit(:email, :encrypted_password)
   end
+
+  
 end

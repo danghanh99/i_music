@@ -10,7 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_05_070548) do
+ActiveRecord::Schema.define(version: 2020_06_10_144023) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_categories_on_user_id"
+  end
+
+  create_table "songs", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "category_id", null: false
+    t.string "artist"
+    t.text "lyric"
+    t.integer "point"
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "mp3_file_name"
+    t.string "mp3_content_type"
+    t.bigint "mp3_file_size"
+    t.datetime "mp3_updated_at"
+    t.index ["category_id"], name: "index_songs_on_category_id"
+    t.index ["user_id"], name: "index_songs_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email"
@@ -18,7 +43,14 @@ ActiveRecord::Schema.define(version: 2020_06_05_070548) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "remember_digest"
+    t.boolean "admin"
+    t.string "activation_digest"
+    t.boolean "activated", default: false
+    t.datetime "activated_at"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "categories", "users"
+  add_foreign_key "songs", "categories"
+  add_foreign_key "songs", "users"
 end
