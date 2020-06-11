@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  attr_accessor :activation_token
   has_many :categories, dependent: :destroy
   has_many :songs, dependent: :destroy
   attr_accessor :remember_token
@@ -7,6 +8,9 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 255 },
                   format: { with: VALID_EMAIL_REGEX },
                   uniqueness: { case_sensitive: false }
+
+       before_save :downcase_email           
+       before_create :create_activation_digest
 
   def self.generate_encrypted_password(password, password_salt = BCrypt::Engine.generate_salt)
     BCrypt::Engine.hash_secret(password, password_salt)
@@ -36,7 +40,33 @@ class User < ApplicationRecord
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
 
+  def authenticate? attribute, token
+    digest = send "#{attribute}_digest"
+    return false if digest.nil?
+    BCrypt::Password.new(digest).is_password? token
+  end
+
   def forget
     update_attribute(:remember_digest, nil)
+  end
+
+  def send_activation_email
+    UserMailer.account_activation(self).deliver_now
+  end
+
+  def active 
+      user.update_attribute :activated, true
+      user.update_attribute :activated_at, Time.zone.now
+  end
+
+  private
+
+  def downcase_email
+    self.email = email.downcase
+  end
+
+  def create_activation_digest
+    self.activation_token = User.new_token
+    self.activation_digest = User.digest(activation_token)
   end
 end
