@@ -1,0 +1,11 @@
+<%= form_for(@song) do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <div class="field">
+    <label>Name:</label> <%= f.text_field :name, placeholder: "name song..." %></br>
+    <label>Artist:</label> <%= f.text_field :artist, placeholder: "artist song..." %></br>
+    <label>Lyric:</label> <%= f.text_field :lyric, placeholder: "lyric song..." %></br>
+    <label>Category:</label><%= f.select :category, options_for_select(Category.get_list_category), {:class => 'form-control', :prompt => 'category'} %></br>
+    <label>Mp3</label><%= f.file_field :mp3, class: 'form-control', id: 'mp3', placeholder: "mp3..." %></br>
+  </div>
+  <%= f.submit "Update", class: "btn btn-primary" %>
+<% end %>

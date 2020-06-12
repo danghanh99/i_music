@@ -1,17 +1,12 @@
-
-    <%= form_for(@user) do |f| %>
-      <h2>Sign-up</h2>
-      <%= render 'shared/error_messages', object: f.object %>
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control', id: 'email', placeholder: "Email..." %>
-      <%= f.label :password %>
-      <%= f.password_field :encrypted_password, class: 'form-control', id: 'password', placeholder: 'Password...' %>
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation, class: 'form-control', id: 'password', placeholder: 'Re-password...'  %>
-      
-      <%= f.submit submit_tittle, class: 'btn_signup' %>
-    <% end %>
-
-            
-
-
+<%= form_for(@user) do |f| %>
+  <h2>Sign-up</h2>
+  <%= render 'shared/error_messages', object: f.object %>
+  <%= f.label :email %>
+  <%= f.email_field :email, class: 'form-control', id: 'email', placeholder: "Email..." %>
+  <%= f.label :password %>
+  <%= f.password_field :encrypted_password, class: 'form-control', id: 'password', placeholder: 'Password...' %>
+  <%= f.label :password_confirmation, "Confirmation" %>
+  <%= f.password_field :password_confirmation, class: 'form-control', id: 'password', placeholder: 'Re-password...'  %>
+  
+  <%= f.submit submit_tittle, class: 'btn_signup' %>
+<% end %>
