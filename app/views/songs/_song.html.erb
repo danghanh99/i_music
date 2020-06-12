@@ -3,7 +3,7 @@
   <span class="name"><label>Artist:</label> <%= song.artist %></span></br>
   <span class="name"><label>Lyric:</label> <%= song.lyric %></span></br>
   <span class="name"><label>Category:</label> <%= Category.find(song.category_id).name %></span></br>
-  <span class="name"><label>Mp3:</label></br><%= audio_tag "#{@song.mp3}", controls: true, autoplay: false %></span></br>
+  <span class="name"><label>Mp3:</label></br><%= audio_tag "#{song.mp3}", controls: true, autoplay: false %></span></br>
     <% if admin? %>
       <span class="edit">
         <%= link_to "Edit", edit_song_path(song.id) , class: "btn btn-primary"%>
