@@ -1,13 +1,13 @@
 <%= form_for(@category) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
     <div class="panel panel-default">
-    <div class="panel-heading"> <h2 style="color:#4800ff; text-align:center">Thêm thể loại</h2> </div>
+    <div class="panel-heading"> <h2 style="color:#4800ff; text-align:center">Add Category</h2> </div>
     <div class="panel-body">
     <div class="box-content">
-    <form style="text-align: center;" action="AddTheLoai" method="post">
-    <div class="them_video" style="margin-left:300px">
-    <p style="float:left; margin-right:30px; width:80px; text-align:left">Thể loại:</p> 
-    <%= f.text_field :name, style: "margin:10px; width:300px" ,class: "form-control", placeholder: "Thể loại" %>
+    <form style="text-align: center;" action="AddCategory" method="post">
+    <div class="add_video" style="margin-left:300px">
+    <p style="float:left; margin-right:30px; width:80px; text-align:left">Category:</p> 
+    <%= f.text_field :name, style: "margin:10px; width:300px" ,class: "form-control", placeholder: "Category" %>
     </div>
     <p>
     <%= f.submit "create", class: 'create' %>

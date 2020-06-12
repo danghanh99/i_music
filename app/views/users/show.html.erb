@@ -9,14 +9,14 @@
      </div>                                                
      <div class="profile-userbuttons">                 
       <%# <button type="button" class="btn btn-success btn-sm">Trang chủ</button> %>
-      <%= link_to "Trang chủ", root_url, class: "btn btn-success btn-sm", type: "button" %> 
-      <%= link_to "Thoát ra", root_url, class: "btn btn-danger btn-sm", type: "button" %>         
+      <%= link_to "Home", root_url, class: "btn btn-success btn-sm", type: "button" %> 
+      <%= link_to "Exit", root_url, class: "btn btn-danger btn-sm", type: "button" %>         
      </div>                                            
      <div class="profile-usermenu">                    
       <ul class="nav"><div class="logo_menuchinh" style="float:left; padding-top:5px; padding-left:10px; color:#fff; margin-left:auto; margin-right:auto; text-align=center; line-height:40px; font-size:16px;font-weight:bold;font-family:Arial">HOCWEBGIARE.COM</div><div class="menu-icon"><span>Menu</span></div>                      
-       <li class="active"><%= link_to 'Cập nhật thông tin cá nhân', edit_user_path(@user)%>                  
+       <li class="active"><%= link_to 'Update information user', edit_user_path(@user)%>                  
        </li>                       
-       <li><a href=""><i class="glyphicon glyphicon-heart"></i> Bài hát yêu thích </a>                     
+       <li><a href=""><i class="glyphicon glyphicon-heart"></i> Favorite Song </a>                     
        </li>                       
        <li><a href="" target="_blank"><i class="glyphicon glyphicon-shopping-cart"></i>Album</a>                       
        </li>                       
@@ -27,7 +27,7 @@
     </div>     
    </div>      
    <div class="col-md-9"> 
-    <div class="profile-content">Chào mừng Bạn đến với website nghe nhạc IMusic </div>
+    <div class="profile-content">Welcome to IMusic </div>
    </div>  
   </div>
  </div> 

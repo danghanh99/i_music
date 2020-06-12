@@ -20,7 +20,7 @@
           <i class="fa fa-coffee"></i>
           This is an <strong>.alert</strong>. Use this to show important messages to the user.
         </div>
-        <h3>Personal info</h3>
+        <h3>Personal Information</h3>
         
         <form class="form-horizontal" role="form">
              <%= form_for(@user) do |f| %>
@@ -38,7 +38,7 @@
             </div>
           </div>
           <div class="form-group">
-                  <%= f.label :password_confirmation, "Confirmation", class: "col-md-3 control-label" %>
+                  <%= f.label :password_confirmation, "Password Confirmation", class: "col-md-3 control-label" %>
             <div class="col-md-8">
              <%= f.password_field :password_confirmation, class: 'form-control', id: 'password', placeholder: 'Re-password...'  %>
             </div>
