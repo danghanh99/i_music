@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :categories, dependent: :destroy
   has_many :songs, dependent: :destroy
+  has_many :favorite_songs, dependent: :destroy
   attr_accessor :remember_token
   before_save { self.email = email.downcase }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze

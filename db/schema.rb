@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_11_135902) do
+ActiveRecord::Schema.define(version: 2020_06_12_234725) do
 
   create_table "album_songs", force: :cascade do |t|
     t.integer "album_id", null: false
@@ -34,6 +34,23 @@ ActiveRecord::Schema.define(version: 2020_06_11_135902) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
     t.index ["user_id"], name: "index_categories_on_user_id"
+  end
+
+  create_table "favorite_songs", force: :cascade do |t|
+    t.string "name"
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_favorite_songs_on_user_id"
+  end
+
+  create_table "song_favorite_songs", force: :cascade do |t|
+    t.integer "song_id", null: false
+    t.integer "favorite_song_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["favorite_song_id"], name: "index_song_favorite_songs_on_favorite_song_id"
+    t.index ["song_id"], name: "index_song_favorite_songs_on_song_id"
   end
 
   create_table "songs", force: :cascade do |t|
@@ -66,6 +83,9 @@ ActiveRecord::Schema.define(version: 2020_06_11_135902) do
   add_foreign_key "album_songs", "albums"
   add_foreign_key "album_songs", "songs"
   add_foreign_key "categories", "users"
+  add_foreign_key "favorite_songs", "users"
+  add_foreign_key "song_favorite_songs", "favorite_songs"
+  add_foreign_key "song_favorite_songs", "songs"
   add_foreign_key "songs", "categories"
   add_foreign_key "songs", "users"
 end

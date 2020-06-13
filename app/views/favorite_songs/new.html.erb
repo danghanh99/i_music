@@ -1,0 +1,13 @@
+<%= form_for([@user, @favorite_song || @user.favorite_songs.build]) do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <h2>Album Songs</h2>
+ <div class="form-group">
+   <%= f.label :song_id %>
+   <%= f.select :song_ids, options_for_select(@songs.map{|key, value| [key, value]}), {include_blank: true}, {class: "chosen-select", multiple: "true"} %>
+ </div>
+  <%= f.submit "create"%>
+<% end %>
