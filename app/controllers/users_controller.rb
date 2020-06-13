@@ -31,6 +31,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    byebug
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       flash[:success] = "Profile updated"

@@ -12,7 +12,7 @@ class CategoriesController < ApplicationController
   end
   
   def create
-    @category = current_user.categories.build(category_params)
+    @category = current_user.categories.build(category_params) if admin?
     if @category.save
       flash[:success] = "Category created!"
       redirect_to category_path(@category)
