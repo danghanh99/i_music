@@ -8,29 +8,20 @@ user = User.first
 x = 1
 5.times do
     category = user.categories.create!(name: "category #{x}")
-    2.times do
-      home.rooms.create!(
-        user_id: user.id,
-        length: 25,
-        width: 7,
-        height: 5,
-        area: 175,
-        number_room: number_room_default,
-        price: 2000000,
-        price_unit: "VND",
-        status: "available",
-      )
-      number_room_default += 1
-    end
-
+    song = user.songs.create!([
+      category_id: category.id,
+      name:  "bai hat #{x}", 
+      artist: "hanh", 
+      lyric: "demo", 
+      mp3: File.open(Rails.root + "public/system/songs/mp3s/000/000/001/original/Anh-Nang-Cua-Anh-Cho-Em-Den-Ngay-Mai-OST-Duc-Phuc.mp3"),
+      ])
     x += 1
 end
 
-User.create!(name: "user test",
-             email: "UserTest@gmail.com",
-             password: "123456",
-             password_confirmation: "123456",
-             phone_number: 2363842308,
-             admin: false,
-             activated: true,
-             activated_at: Time.zone.now)
+
+User.create!(
+  email: "user@gmail.com",
+  #123456
+  encrypted_password: "$2a$12$M5Ste9ihZNNIFKRVYwP6dOa9BJkMIA4mKPIgq4dUVExQedQiwnQkW",
+  admin: false,
+)

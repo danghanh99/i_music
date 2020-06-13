@@ -6,7 +6,7 @@ class SongsController < ApplicationController
   def create 
     @song = current_user.songs.build(song_params) if admin?
     category = Category.find_by name: params[:song][:category]  
-    @song.category_id = category.id
+@song.category_id = category.id
     if @song.save
       flash[:success] = "song created!"
       redirect_to song_path(@song)
